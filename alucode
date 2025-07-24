@@ -1,0 +1,46 @@
+module ALU_2bit (
+    input  [1:0] A,      // 2-bit input A
+    input  [1:0] B,      // 2-bit input B
+    input  [1:0] sel,    // 2-bit selector
+    output reg [2:0] result // 3-bit result (to handle carry in addition/subtraction)
+);
+
+always @(*) begin
+    case (sel)
+        2'b00: result = A + B;       // Addition
+        2'b01: result = A - B;       // Subtraction
+        2'b10: result = A & B;       // Bitwise AND
+        2'b11: result = A | B;       // Bitwise OR
+        default: result = 3'b000;
+    endcase
+end
+
+endmodule
+
+
+
+//testbench
+module tb_ALU_2bit;
+    reg [1:0] A, B;
+    reg [1:0] sel;
+    wire [2:0] result;
+
+    ALU_2bit alu(.A(A), .B(B), .sel(sel), .result(result));
+
+    initial begin
+        $display("A  B  sel  | result");
+        A = 2'b01; B = 2'b10; sel = 2'b00; #10; // 1 + 2
+        $display("%b  %b  %b   | %b", A, B, sel, result);
+        
+        A = 2'b11; B = 2'b01; sel = 2'b01; #10; // 3 - 1
+        $display("%b  %b  %b   | %b", A, B, sel, result);
+        
+        A = 2'b10; B = 2'b01; sel = 2'b10; #10; // AND
+        $display("%b  %b  %b   | %b", A, B, sel, result);
+        
+        A = 2'b10; B = 2'b01; sel = 2'b11; #10; // OR
+        $display("%b  %b  %b   | %b", A, B, sel, result);
+        
+        $finish;
+    end
+endmodule
