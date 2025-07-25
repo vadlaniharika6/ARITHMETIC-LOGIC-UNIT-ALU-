@@ -25,3 +25,7 @@ ALUs can be designed to operate on different sizes of data. For example, a simpl
 The design of an ALU can be either combinational or sequential. In combinational ALUs, the output depends only on the current inputs, and the operations are performed instantly based on the logic circuits. In sequential ALUs, the design includes clock signals and memory elements, allowing for more complex operations that occur over multiple clock cycles. Depending on the application, the ALU can be optimized for speed, area, or power consumption.
 
 In conclusion, the Arithmetic Logic Unit is the backbone of any computational device. It enables the processor to carry out the basic mathematical and logical operations required to run software and perform tasks. As computers evolve, ALUs are becoming more advanced, supporting more operations, higher precision, and faster execution. Whether in simple microcontrollers or powerful CPUs in supercomputers, the ALU remains a critical and indispensable component in computing architecture.
+
+
+//OUTPUT
+<img width="1901" height="1079" alt="Image" src="https://github.com/user-attachments/assets/e1288916-539e-4eb3-a335-7381c5455a3d" />
